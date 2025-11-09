@@ -6,7 +6,7 @@ environment:
 
 install:
   - java -version
-  - chmod +x gradlew
+  - gradlew.bat --version
 
 build_script:
   # Сборка проекта
