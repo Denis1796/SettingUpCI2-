@@ -6,13 +6,20 @@ environment:
 
 install:
   - java -version
-  - java -jar ./src/artifacts/app-mbank.jar &
   - chmod +x ./gradlew
 
-build: off
-
 build_script:
-  - ./gradlew test --info
+  # Сборка проекта
+  - ./gradlew build --info
+
+  # Создаём папку artifacts
+  - if not exist artifacts mkdir artifacts
+
+  # Копируем jar в папку artifacts с нужным именем
+  - copy build\libs\*.jar artifacts\app-mbank.jar
+
+  # Запускаем jar (если нужно)
+  - java -jar artifacts\app-mbank.jar
 
 branches:
   only:
