@@ -2,17 +2,25 @@ image: Visual Studio 2022
 
 environment:
   matrix:
-    - JDK_VERSION: 11
+    - JAVA_HOME: "C:\\Program Files\\Java\\jdk11"
 
 install:
+  # Обновляем PATH, чтобы AppVeyor использовал JDK 11
   - set PATH=%JAVA_HOME%\bin;%PATH%
   - java -version
   - chmod +x gradlew.bat
 
 build_script:
+  # Сборка проекта через Gradle
   - gradlew.bat build --info
+
+  # Создаём папку src/artifacts
   - if not exist src\artifacts mkdir src\artifacts
+
+  # Копируем jar в src/artifacts с нужным именем
   - copy build\libs\*.jar src\artifacts\app-mbank.jar
+
+  # Запускаем jar (опционально)
   - java -jar src\artifacts\app-mbank.jar
 
 branches:
