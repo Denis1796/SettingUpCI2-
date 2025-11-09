@@ -12,7 +12,7 @@ build_script:
   - gradlew.bat build --info
   - if not exist src\artifacts mkdir src\artifacts
   - copy build\libs\*.jar src\artifacts\app-mbank.jar
-  - java -jar src\artifacts\app-mbank.jar &
+  - start /b java -jar src\artifacts\app-mbank.jar
   - timeout /t 10
   - gradlew.bat test
 
