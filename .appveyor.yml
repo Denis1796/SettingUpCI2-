@@ -6,7 +6,7 @@ environment:
 
 install:
   - java -version
-  - java -jar ./artifacts/app-mbank.jar &
+  - java -jar ./src/artifacts/app-mbank.jar &
   - chmod +x ./gradlew
 
 build: off
