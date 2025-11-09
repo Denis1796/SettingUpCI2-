@@ -2,7 +2,7 @@ image: Visual Studio 2022
 
 environment:
   matrix:
-    - JAVA_HOME: "C:\\Program Files\\AdoptOpenJDK\\jdk-11.0.18.10-hotspot"
+    - JDK_VERSION: 11
 
 install:
   - set PATH=%JAVA_HOME%\bin;%PATH%
