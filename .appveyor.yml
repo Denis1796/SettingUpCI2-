@@ -1,7 +1,7 @@
 version: '{build}'
 
 # Образ Windows для сборки (как пример Windows Server 2019)
-os: Windows Server 2019
+os: Visual Studio 2019
 
 # Используем свои скрипты сборки (отключаем стандартный MSBuild)
 build: off
